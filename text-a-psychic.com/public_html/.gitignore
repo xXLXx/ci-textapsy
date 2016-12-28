@@ -1,0 +1,5 @@
+node_modules
+app/application/vendor
+composer.lock
+npm-debug.log
+application/vendor

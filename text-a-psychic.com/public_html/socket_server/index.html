@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Text a Psychic - SMS Psychic Readings (109)</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="Description" content="Text A Psychic - sms and text, free online psychic chat readings and Spiritual Psychic Advisors offering ethical, professional, Online psychic Readings,Tarot Card Readings, Live Online Psychic Chat and Email Readings.">
+<meta name="Keywords" content="Send psychic text, Online Psychic Readings, Free Psychic Text, live sms psychics, psychic readers by texting, psychics ">
+<meta name="Rating" content="General"/>
+<meta name="author" content="Text A Psychic"/>
+<meta name="robots" content="index,follow"/>
+<meta name="robots" content="all"/>
+<meta name="copyright" content="Copyright 2012 Text A Psychic">
+<meta name="Classification" content="business">
+<meta name="Language" content="en-us">
+
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+Please see console for logs
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+  var socket = io('http://localhost:3000');
+  socket.on('message_recieved', function (data) {
+    console.log(data);
+  });
+  socket.on('message_accepted', function (data) {
+    console.log(data);
+  });
+  socket.on('message_declined', function (data) {
+    console.log('declined');
+    console.log(data);
+  });
+   socket.on('message_resolved', function (data) {
+    console.log(data);
+  });
+</script>
+</body>
+</html>
