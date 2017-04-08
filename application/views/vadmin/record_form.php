@@ -9,7 +9,7 @@
 	
 	</style>
 	
-	<?
+	<?php
 	
 		$hidden_fields = array();
 		
@@ -56,7 +56,7 @@
 		$(document).ready(function()
 		{
 		
-			<? if($this->uri->segment('4')=='7'){ ?>
+			<?php if($this->uri->segment('4')=='7'){ ?>
 		
 			var htmlContent = "<p><?=str_replace(array("\n","\r","\t")," ","
 			
@@ -67,7 +67,7 @@
 			
 			")?></p>";
 			
-			<? } ?>
+			<?php } ?>
 
 		});
 	
@@ -95,7 +95,7 @@
 		
 		<div class='white_box_nr' style='padding:0;'>
 		
-			<?
+			<?php
 
      //        if($this->uri->segment('4')=='6')
      //        {

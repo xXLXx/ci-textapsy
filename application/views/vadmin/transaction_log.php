@@ -1,6 +1,6 @@
 
 
-    <?
+    <?php
 
         $this->member->set_member_id($this->uri->segment('4'));
         $minute_balance = $this->member_funds->minute_balance();
@@ -25,7 +25,7 @@
 
     <div class='round-bottom white_box_nr' style='padding:10px;'>
 
-        <?
+        <?php
 
             echo "
             <div align=\"left\">

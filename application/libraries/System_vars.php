@@ -1,4 +1,4 @@
-<?
+<?php
 
     class system_vars
     {

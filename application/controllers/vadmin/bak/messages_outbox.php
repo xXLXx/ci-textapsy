@@ -9,7 +9,7 @@
 	
 	<div>&nbsp;</div>
 	
-	<?
+	<?php
 	
 		if($messages)
 		{

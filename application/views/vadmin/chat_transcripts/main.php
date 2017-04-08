@@ -16,7 +16,7 @@
 
             </thead>
 
-            <? foreach($chats as $chat): ?>
+            <?php foreach($chats as $chat): ?>
 
                 <tr>
                     <td><?=date("m/d/Y @ h:i A", strtotime($chat->start_datetime))?></td>
@@ -27,7 +27,7 @@
                     <td style="text-align:center;width:75px;"><a href="/vadmin/main/transcripts/<?=$chat->id?>">Details</a></td>
                 </tr>
 
-            <? endforeach; ?>
+            <?php endforeach; ?>
 
         </table>
 

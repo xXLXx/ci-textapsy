@@ -134,7 +134,7 @@
 						
 						<ul id='nav_left'>
 						
-							<?
+							<?php
 							
 								$getNavbar = $this->db->query("SELECT * FROM vadmin_nav WHERE hidden = 0 ORDER BY `sort` ");
 								
@@ -224,7 +224,7 @@
 									
 									</td>
 									
-									<? if(isset($this->nav_id)) : ?>
+									<?php if(isset($this->nav_id)) : ?>
 									
 										<td width='225' align='right'>
 										
@@ -243,7 +243,7 @@
 											
 										</td>
 									
-									<? endif; ?>
+									<?php endif; ?>
 									
 								</tr>
 								

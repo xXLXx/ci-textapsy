@@ -36,9 +36,9 @@
 					
 					<?php endif; ?>
 
-                    <? if($this->uri->segment('5')=='21'): ?>
+                    <?php if($this->uri->segment('5')=='21'): ?>
                         <a href='/vadmin/main/purge_old' onClick="Javascript:return confirm('Are you sure you want to delete ALL old members?');" class="btn btn-danger btn-mini">Purge ALL Old Members</a>
-                    <? endif; ?>
+                    <?php endif; ?>
 
 					<a href='/vadmin/main/add_record/<?=$nav['id']?>/<?=($subnav['id'] ? $subnav['id'] : '0')?>' class='btn btn-small btn-inverse'>Add Record</a> &nbsp; &nbsp; 
 					
@@ -55,7 +55,7 @@
 	
 		<div style='background:#EFECE5;padding:5px 5px 5px 15px;border-bottom:solid 1px #BBB;'><?=number_format($total_results)?> Record(s) Found</div>
 
-		<?
+		<?php
 		
 			if(!$data)
 			{

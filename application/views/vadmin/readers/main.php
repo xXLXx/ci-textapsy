@@ -102,21 +102,21 @@
 
             <tbody>
 
-                <? foreach($readers as $reader): ?>
+                <?php foreach($readers as $reader): ?>
 
-                    <? $this->reader->init($reader['id']); ?>
+                    <?php $this->reader->init($reader['id']); ?>
 
                     <!-- US Balance -->
-                    <? $us_balance = $this->reader->get_balance('us');?>
-                    <? $USFormattedBalance = number_format($us_balance, 2); ?>
+                    <?php $us_balance = $this->reader->get_balance('us');?>
+                    <?php $USFormattedBalance = number_format($us_balance, 2); ?>
 
                     <!-- CAN Balance -->
-                    <? $ca_balance = $this->reader->get_balance('ca');?>
-                    <? $CAFormattedBalance = number_format($ca_balance, 2); ?>
+                    <?php $ca_balance = $this->reader->get_balance('ca');?>
+                    <?php $CAFormattedBalance = number_format($ca_balance, 2); ?>
 
                     <!-- Is Featured -->
-                    <? $featuredClassImage = ($reader['featured'] ? "icon-star icon-white" : "icon-star-empty"); ?>
-                    <? $featuredClassBTN = ($reader['featured'] ? "btn btn-primary" : "btn"); ?>
+                    <?php $featuredClassImage = ($reader['featured'] ? "icon-star icon-white" : "icon-star-empty"); ?>
+                    <?php $featuredClassBTN = ($reader['featured'] ? "btn btn-primary" : "btn"); ?>
 
                     <tr>
                         <td><a href="/vadmin/main/edit_record/17/0/<?=$reader['id']?>"><?=$reader['username']?></a></td>
@@ -127,7 +127,7 @@
                         <td style="width:175px; text-align: center;"><a href='#enterPaymentModal' class="newPaymentAnchor btn" data-toggle="modal" data-readerpaypal="<?=($reader['paypal_email'] ? $reader['paypal_email'] : "")?>" data-ustotal="<?=$USFormattedBalance?>" data-catotal="<?=$CAFormattedBalance?>" data-readerid="<?=$reader['id']?>">Enter New Payment</a></td>
                     </tr>
 
-                <? endforeach; ?>
+                <?php endforeach; ?>
 
             </tbody>
 

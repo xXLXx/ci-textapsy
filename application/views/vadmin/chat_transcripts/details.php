@@ -41,7 +41,7 @@
                 <td>&nbsp;</td>
                 <td>
 
-                    <?
+                    <?php
 
                         if(!$hasNRR){
                             echo "<a class=\"btn\" href='/vadmin/main/process_nrr/{$id}' onClick=\"Javascript:return confirm('This action will refund the client and remove paid funds from reader. Are you sure you want to continue?');\">Process NRR</a>";
@@ -60,14 +60,14 @@
 
     <table class="table table-striped table-bordered" style="margin:15px 0 35px;">
 
-        <? foreach($transcripts as $t): ?>
+        <?php foreach($transcripts as $t): ?>
 
             <tr>
                 <td><?=$t->username?></td>
                 <td><?=$t->message?></td>
             </tr>
 
-        <? endforeach; ?>
+        <?php endforeach; ?>
 
     </table>
 

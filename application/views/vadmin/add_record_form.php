@@ -13,7 +13,7 @@
 	
 	</style>
 	
-	<?
+	<?php
 	
 		$hidden_fields = array();
 		
@@ -50,7 +50,7 @@
 		
 		<div class='white_box_nr' style='padding:0;'>
 		
-			<?
+			<?php
 			
 				$brige_field = (isset($brige) ? $bridge : "");
 			

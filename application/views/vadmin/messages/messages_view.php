@@ -1,6 +1,6 @@
 
 
-<? $v_from = "" ?>
+<?php $v_from = "" ?>
 <div style='padding-bottom:25px;'>
 		<h2><?=$subject?></h2>
 	</div>

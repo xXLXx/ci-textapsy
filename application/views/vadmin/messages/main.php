@@ -9,7 +9,7 @@
     <li <?=($this->uri->segment('3')=='compose' ? " class=\"active\"" : "")?>><a href="/vadmin/message_management/compose"><span class='icon icon-comment'></span> Compose A New Message</a></li>
 </ul>
 
-<?
+<?php
 
 if($messages)
 {

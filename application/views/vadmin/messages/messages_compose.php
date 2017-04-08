@@ -16,7 +16,7 @@
 			<tr>
 				<td width='150'><b>Recipient:</b></td>
 				<td>
-					<?
+					<?php
 					
 						if($this->uri->segment('4'))
 						{
