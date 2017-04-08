@@ -1,3 +1,0 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
-ERROR - 2016-12-08 10:57:39 --> Query error: Unknown column 'action' in 'field list' - Invalid query: INSERT INTO `inbound_messages` (`action`, `billing`, `country`, `number`, `network`, `shortcode`, `message`, `request_url`, `txtnation_msg_id`) VALUES ('mpush_ir_message', 'MT', 'UK', '447340358715', 'VODAFONE14UK', '68899', 'psychic hi from skye', 'reply=1&id=998518429&number=447340358715&network=VODAFONE14UK&message=We+have+successfully+received+your+message.+A+psychic+will+reply+to+in+a+short+while.&value=1.5&currency=gbp&cc=psychiccontact&title=&ekey=1a989ce5a9b504b267a810be41c8d114', '998518429')
