@@ -79,7 +79,7 @@ if (ENVIRONMENT !== 'production') {
 
 $db['dev'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => gethostname() == 'txtapsy' ? '10.8.8.8' : 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'txtapsy',
