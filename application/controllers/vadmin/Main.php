@@ -286,6 +286,10 @@
 					$fieldValue = $this->$specMod->process_form();
 
 					if (isset($specs['unique'][$mainNavId][$f])) {
+						if (!$fieldValue) {
+							continue;
+						}
+						
 						if ($this->db->where($f, $fieldValue)->get($table)->num_rows()) {
 							$field = str_replace('_', ' ', ucwords($f));
 							$this->session->set_flashdata('error', "The {$field} is already taken");
@@ -424,6 +428,10 @@
 					$fieldValue = $this->$specMod->process_form();
 
 					if (isset($specs['unique'][$mainNavId][$f])) {
+						if (!$fieldValue) {
+							continue;
+						}
+
 						if ($this->db->where($f, $fieldValue)->where('id !=', $recordId)->get($table)->num_rows()) {
 							$field = str_replace('_', ' ', ucwords($f));
 							$this->session->set_flashdata('error', "The {$field} is already taken");
