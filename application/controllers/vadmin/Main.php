@@ -84,6 +84,8 @@
 				
 				$table = ($t['subnav']['table'] ? $t['subnav']['table'] : $t['nav']['table']);
 				$where = ($t['subnav']['where'] ? "WHERE ".$t['subnav']['where'] : "");
+
+				$t['specs'] = $this->vadmin->get_table_specs($table);
 				
 				// check for special tags
 				$where = str_replace("%current_date%",date("Y-m-d H:i:s"),$where);
@@ -109,7 +111,19 @@
 					}
 				}
 
-				$totalRecords = $this->db->query("SELECT * FROM {$table} {$where}");
+				$groupby = '';
+				if(isset($t['specs'][$t['subnav']['id']]))
+				{	
+					if (isset($t['specs'][$t['subnav']['id']]['group_by'])) {
+						$groupby = 'GROUP BY (' . $t['specs'][$t['subnav']['id']]['group_by']['value'] . ')';
+					}
+				}
+				if(!$groupby && isset($t['specs']['group_by']))
+				{
+					$groupby = 'GROUP BY (' . $t['specs']['group_by']['value'] . ')';
+				}
+
+				$totalRecords = $this->db->query("SELECT * FROM {$table} {$where} {$groupby}");
 				$limiter = ($this->uri->segment('6') ? $this->uri->segment('6') : "0");
 				
 				// Paginate Results
@@ -122,7 +136,7 @@
 				$this->pagination->initialize($config);
 				
 				// Get data
-				$getData = $this->db->query("SELECT * FROM {$table} {$where} LIMIT {$limiter}, {$config['per_page']}");
+				$getData = $this->db->query("SELECT * FROM {$table} {$where} {$groupby} LIMIT {$limiter}, {$config['per_page']}");
 				
 				if($getData->num_rows()==0)
 				{
@@ -156,6 +170,12 @@
 			if(isset($t['specs']['hide_fields']))
 			{
 				$hidden_fields = explode(',', $t['specs']['hide_fields']['value']);
+			}
+			if(isset($t['specs'][$t['subnav']['id']]))
+			{
+				if (isset($t['specs'][$t['subnav']['id']]['hide_fields'])) {
+					$hidden_fields = array_merge($hidden_fields, explode(',', $t['specs'][$t['subnav']['id']]['hide_fields']['value']));
+				}
 			}
 			if ($t['data']) {
 				foreach ($t['data'] as $key => &$data) {

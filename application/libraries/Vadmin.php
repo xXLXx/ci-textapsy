@@ -60,10 +60,14 @@
 				
 					if(!$ra['field'])
 					{
-						$returnArray[$ra['type']] = $ra;
+						if ($ra['navsub_id']) {
+							$returnArray[$ra['navsub_id']][$ra['type']] = $ra;
+						} else {
+							$returnArray[$ra['type']] = $ra;
+						}
 					}
 					else
-					{
+					{	
 						$returnArray[$ra['type']][$ra['field']] = $ra;
 					}
 				
