@@ -20,6 +20,10 @@
 			]
 		];
 
+		public static $datefiltered = [
+			'19' => 'sent_at'
+		];
+
 		// function vadmin()
 		// {
 		
@@ -67,6 +71,7 @@
 
 				$returnArray['title'] = self::$titles;
 				$returnArray['unique'] = self::$uniques;
+				$returnArray['datefiltered'] = self::$datefiltered;
 				$returnArray['uneditable'] = self::$uneditables;
 				
 				return $returnArray;

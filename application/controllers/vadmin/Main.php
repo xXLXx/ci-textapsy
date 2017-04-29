@@ -88,7 +88,27 @@
 				// check for special tags
 				$where = str_replace("%current_date%",date("Y-m-d H:i:s"),$where);
 				$where = str_replace("%yesterdays_date%",date("Y-m-d H:i:s", strtotime("-1 day")),$where);
-				
+					
+				// Check for date filters
+				if ($this->input->post('datefilter')) {
+					if ($this->input->post('from')) {
+						if ($where) {
+							$where .= ' AND';
+						} else {
+							$where = 'WHERE';
+						}
+						$where .= ' ' . $this->input->post('datefilter') . '>="' . $this->input->post('from') . '"';
+					}
+					if ($this->input->post('to')) {
+						if ($where) {
+							$where .= ' AND';
+						} else {
+							$where = 'WHERE';
+						}
+						$where .= ' ' . $this->input->post('datefilter') . '<="' . $this->input->post('to') . ' 11:59:59"';
+					}
+				}
+
 				$totalRecords = $this->db->query("SELECT * FROM {$table} {$where}");
 				$limiter = ($this->uri->segment('6') ? $this->uri->segment('6') : "0");
 				
@@ -137,9 +157,11 @@
 			{
 				$hidden_fields = explode(',', $t['specs']['hide_fields']['value']);
 			}
-			foreach ($t['data'] as $key => &$data) {
-				foreach ($hidden_fields as $hide) {
-					unset($data[$hide]);
+			if ($t['data']) {
+				foreach ($t['data'] as $key => &$data) {
+					foreach ($hidden_fields as $hide) {
+						unset($data[$hide]);
+					}
 				}
 			}
 			foreach ($hidden_fields as $hide) if (($index = array_search($hide, $t['fields'])) != false) {
@@ -168,8 +190,10 @@
 				
 				}
 				
-				$t['data'] = $this->system_vars->subval_sort($t['data'],trim($sorting_var));
-				if($ascordesc=='desc') $t['data'] = array_reverse($t['data']);
+				if ($t['data']) {
+					$t['data'] = $this->system_vars->subval_sort($t['data'],trim($sorting_var));
+					if($ascordesc=='desc') $t['data'] = array_reverse($t['data']);
+				}
 			
 			}
 		

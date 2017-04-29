@@ -13,6 +13,9 @@
 			padding: 2px 6px;
     		width: 200px;
 		}
+		.header_form input[data-provide="datepicker"] {
+			width: 100px;
+		}
 	
 	</style>
 
@@ -34,6 +37,17 @@
 							<input type="submit" value="Member Search" class="btn btn-small" />
 						</form>
 					
+					<?php endif; ?>
+
+					<?php if (isset($specs['datefiltered'][$nav['id']])): ?>
+						<form action="<?php echo current_url(); ?>" method="POST" class="header_form form-inline">
+							<input type="text" placeholder="From" name="from" data-date-orientation="bottom" data-date-format="yyyy-mm-dd"
+								data-provide="datepicker" value="<?= $this->input->post('from') ?>" />
+							<input type="text" placeholder="To" name="to" data-date-orientation="bottom" data-date-format="yyyy-mm-dd"
+								data-provide="datepicker" value="<?= $this->input->post('to') ?>" />
+							<input type="hidden" name="datefilter" value="<?php echo $specs['datefiltered'][$nav['id']] ?>">
+							<input type="submit" value="Filter" class="btn btn-small" />
+						</form>
 					<?php endif; ?>
 
                     <?php if($this->uri->segment('5')=='21'): ?>

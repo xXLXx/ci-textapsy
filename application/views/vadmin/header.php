@@ -53,6 +53,10 @@
 	<!-- Bootstrap -->
 	<script src='/media/bootstrap/js/bootstrap.min.js'></script>
 	<link rel="stylesheet" href="/media/bootstrap/css/bootstrap.min.css" />
+
+	<!-- Bootstrap datepicker-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" />
 	
 	<style>
 	
